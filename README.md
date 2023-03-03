@@ -67,6 +67,8 @@ The National Institutes of Health guidelines define metabolic syndrome as having
   * Seaborn pairplots
   * Histograms, bar charts and line charts
 
+### Explanatory Data Analysis
+    
 #### Bar Chart Visualization
 ![](https://github.com/CRPeace/Coding_Dojo_Project_2/blob/f113a3022df7c8ff7a8e410f656e3154ee989621/analysis_images/4%20of%205%20conditions.png)
 > This Visualization revealed the conditions present in the dataset that define a positive diagnosis of metabolic syndrome.  The final condition (Blood Pressure) was not present in the dataset.
