@@ -4,13 +4,13 @@
 
 **Cameron Peace**
 
-#### The purpose of this analysis was to investigate what patient data resulted in a positive diagnosis of metabolic syndrome, and build a model that could be used by health care providers to predict the affliction.
+#### The purpose of this analysis was to investigate what patient data resulted in a positive diagnosis of metabolic syndrome, and build a model that could be used by health care providers for prediction.
 ---
 ### <mark>**Quick Summary & Recommendations:** 
-* **The analytical findings of the data aligned with National Health Guidelines for diagnosing metabolic disorder**.  From the [Mayo Clinic website](https://www.mayoclinic.org/diseases-conditions/metabolic-syndrome/symptoms-causes/syc-20351916): 
+* ***The analytical findings of the data aligned with National Health Guidelines for diagnosing metabolic disorder***.  From the [Mayo Clinic website](https://www.mayoclinic.org/diseases-conditions/metabolic-syndrome/symptoms-causes/syc-20351916): 
 >Metabolic syndrome is a cluster of conditions that occur together, increasing your risk of heart disease, stroke and type 2 diabetes. **These conditions include increased blood pressure, high blood sugar, excess body fat around the waist, and abnormal cholesterol or triglyceride levels.**
-* <mark>**The Machine Learning models utilized here are unnecessary or have very limited use.**</mark>  Because a "syndrome" is characterized as a certain set of conditions, and because in this case those conditions can be objectively measured, then there is really nothing to predict, given adequate data.  <mark>**There is a potential use case for when the specific patient data is limited or missing, and the model could alert the caregiver to potential risk of metabolic syndrome and call for tests to gather more data**</mark>. In my opinion, scenarios that would lead to this use case seem unlikely.
-* <mark>**I would recommend a simpler "filtering" tool that could scan patient data for specific criteria and alert the care team as needed.**</mark> The system could throw a flag if a diagnosis of metabolic syndrome can be made or if the patient is at high risk of a diagnosis.  This tool would be much easier to implement and maintain.
+* <mark>***The Machine Learning models utilized here are unnecessary or have very limited use.***</mark>  Because a "syndrome" is characterized as a certain set of conditions, and because in this case those conditions can be objectively measured, then there is really nothing to predict, given adequate data.  <mark>***There is a potential use case for when the specific patient data is limited or missing, and the model could alert the caregiver to potential risk of metabolic syndrome and call for tests to gather more data***</mark>. In my opinion, scenarios that would lead to this use case seem unlikely.
+* <mark>***I would recommend a simpler "filtering" tool that could scan patient data for specific criteria and alert the care team as needed.***</mark> The system could throw a flag if a diagnosis of metabolic syndrome can be made or if the patient is at high risk of a diagnosis.  This tool would be much easier to implement and maintain.
 * Additional modeling could of course be explored if there is an application that requires it.  **However, in my opinion, a model missing key data that attempts to predict metabolic syndrome would require much more data and a wider scope of patient data than is in the current dataset.** And in that case, I would be very skeptical about the accuracy of the model. 
 ---
 
@@ -22,6 +22,16 @@
 * It is not clear from the description on data.world when the data were collected and what regions or demographic groups the individuals in the study represent.
 * The dataset was uploaded to data.world by Robert Hoyt MD on July 22nd, 2019.
 
+### Metabolic Syndrome Diagnosis:
+
+The National Institutes of Health guidelines define metabolic syndrome as having three or more of the following traits, including traits for which you may be taking medication to control:
+>* **Large waist** — A waistline that measures at least 35 inches (89 centimeters) for women and 40 inches (102 centimeters) for men
+>* **High triglyceride level** — 150 milligrams per deciliter (mg/dL), or 1.7 millimoles per liter (mmol/L), or higher of this type of fat found in blood
+>* **Reduced "good" or HDL cholesterol** — Less than 40 mg/dL (1.04 mmol/L) in men or less than 50 mg/dL (1.3 mmol/L) in women of high-density lipoprotein (HDL) cholesterol
+>* **Increased blood pressure — 130/85 millimeters of mercury (mm Hg) or higher** &emsp; <font color='darkorange'>*(Not present in this dataset)*
+>* **Elevated fasting blood sugar** — 100 mg/dL (5.6 mmol/L) or higher
+    
+  
 #### Data Dictionary:
 * ***Variable Name: --	Description***
 * age -- integer -- age
@@ -58,13 +68,12 @@
   * Histograms, bar charts and line charts
 
 #### Bar Chart Visualization
-![](link)
+![](https://github.com/CRPeace/Coding_Dojo_Project_2/blob/f113a3022df7c8ff7a8e410f656e3154ee989621/analysis_images/4%20of%205%20conditions.png)
 > This Visualization revealed the conditions present in the dataset that define a positive diagnosis of metabolic syndrome.  The final condition (Blood Pressure) was not present in the dataset.
 ---
 ### Line Chart Visualization
-![](link)
-> 
-**This line chart shows the percentage of patients with Metabolic Syndrome in each age group.**
+![](https://github.com/CRPeace/Coding_Dojo_Project_2/blob/f113a3022df7c8ff7a8e410f656e3154ee989621/analysis_images/risk_rises_with_age.png)
+> **This line chart shows the percentage of patients with Metabolic Syndrome in each age group.**
     
 It is clear that the risk of Metabolic Syndrome increases with age, which is expected as our bodies become less resilient as we get older.  
 
@@ -91,12 +100,12 @@ There is an interesting trend for patients in their mid 70's and beyond, where r
 
 ---
 ## <u><mark>**Recommendations:**</u>
-In this specific use case, machine learning and predictive modeling is not really necessary.  Because of the "syndrome" nature of metabolic syndrome, a diagnosis can be made very easily if the patient has specific objectively defined attributes within certain parameters (see above: Project Description, Metabolic Syndrome Background).  Therefore, in my opinion, a simpler model/tool should be used.  
+In this specific use case, machine learning and predictive modeling is not really necessary.  Because of the "syndrome" nature of metabolic syndrome, a diagnosis can be made very easily if the patient has specific objectively defined attributes within certain parameters (see above: Metabolic Syndrome Diagnosis).  Therefore, in my opinion, a simpler model/tool should be used.  
     <br>The only practical use case I can imagine here for a machine learning model is when we may have the patient's physical/demographic data only, and are attempting to limit blood tests or have lost the capacity to obtain certain data from lab work.  A more powerful model trained on more data ***may*** be able to predict metabolic disorder, leading to a threshold over which blood samples are recommended to be collected or a diagnosis can be reliably made with limited data.  In my experience, limiting blood tests is not the normal course of how care is administered, so I see any scenario where this is the preferred option as unlikely.  I would also be skeptical of such a model's accuracy.
 
 ## **Limitations & Next Steps**
 
-  * An auto-diagnosis tool for metabolic syndrome could be developed quite easily.  It would simply scan the patient's records for 3 or more values above a certain threshold in the conditions that define the syndrome.
+  * An auto-diagnosis tool for metabolic syndrome could be developed quite easily.  It could simply scan the patient's records for 3 or more values above a certain threshold in the conditions that define the syndrome.
   * If it is deemed necessary to develop a predictive model in cases where core data related to metabolic syndrome are sparse or unobtainable, it's possible this model could have limited use as an early warning detection system to flag patients that may be at risk.
 ---
 ### For further information
